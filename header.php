@@ -26,34 +26,54 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_mgd' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$_mgd_description = get_bloginfo( 'description', 'display' );
-			if ( $_mgd_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $_mgd_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+			<div class="site-header-main">
+				<div class="site-branding">
+					<div class="wrapper">
+						<div id="site-details">
+							<?php if ( is_front_page() && is_home() ) : ?>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+							<?php else : ?>
+								<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+							<?php
+							endif; ?>
+						</div><!-- #site-details -->
+					</div><!-- .wrapper -->
+				</div><!-- .site-branding -->
+			</div><!-- .site-header-main -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_mgd' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+
+			<div id="site-header-menu" class="site-header-menu">
+				<div class="wrapper">
+					<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
+
+						<nav id="site-navigation" class="main-navigation" role="navigation">
+							<?php
+								wp_nav_menu( array(
+										'container'      => '',
+										'theme_location' => 'menu-1',
+										'menu_id'        => 'primary-menu',
+										'menu_class'     => 'menu nav-menu',
+									)
+								);
+							?>
+
+					<?php else : ?>
+
+						<nav id="site-navigation" class="main-navigation default-page-menu" role="navigation">
+							<?php wp_page_menu(
+								array(
+									'menu_class' => 'primary-menu-container',
+									'before'     => '<ul id="menu-primary-items" class="menu nav-menu">',
+									'after'      => '</ul>',
+								)
+							); ?>
+
+					<?php endif; ?>
+
+					</nav><!-- .main-navigation -->
+				</div><!-- .wrapper -->
+			</div><!-- .site-header-menu -->
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

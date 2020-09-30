@@ -25,8 +25,11 @@ function _mgd_customize_register( $wp_customize ) {
 			'render_callback' => '_mgd_customize_partial_blogdescription',
 		) );
 	}
+ 
+
 }
 add_action( 'customize_register', '_mgd_customize_register' );
+	
 
 /**
  * Render the site title for the selective refresh partial.

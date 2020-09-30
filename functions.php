@@ -7,6 +7,13 @@
  * @package michael-gary-dean
  */
 
+//debug_to_console(get_stylesheet_uri());
+
+/* 
+ * ============================
+ * THEME SETUP
+ * ============================
+ */
 if ( ! function_exists( '_mgd_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -84,6 +91,14 @@ endif;
 add_action( 'after_setup_theme', '_mgd_setup' );
 
 /**
+ * Enqueue fonts
+ */
+function google_fonts() {
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap', false );
+}
+add_action( 'wp_enqueue_scripts', 'google_fonts' );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -104,15 +119,36 @@ add_action( 'after_setup_theme', '_mgd_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function _mgd_widgets_init() {
+
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', '_mgd' ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Top Footer Widget 1', '_mgd' ),
+		'id'            => 'top-footer-widget-1',
 		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	) );	
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Top Footer Widget 2', '_mgd' ),
+		'id'            => 'top-footer-widget-2',
+		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );	
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Bottom Footer Widget', '_mgd' ),
+		'id'            => 'bottom-footer-widget',
+		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );	
 }
 add_action( 'widgets_init', '_mgd_widgets_init' );
 
@@ -120,6 +156,8 @@ add_action( 'widgets_init', '_mgd_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _mgd_scripts() {
+
+	/* Load stylesheet */
 	wp_enqueue_style( '_mgd-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( '_mgd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -130,6 +168,7 @@ function _mgd_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', '_mgd_scripts' );
 
 /**

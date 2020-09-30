@@ -353,7 +353,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
@@ -400,6 +400,10 @@ mark, ins {
 big {
   font-size: 125%; }
 
+#footer-site-title a {
+  font-size: 4em;
+  text-transform: uppercase; }
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -426,10 +430,10 @@ ul, ol {
   margin: 0 0 1.5em 3em; }
 
 ul {
-  list-style: disc; }
+  list-style: none; }
 
 ol {
-  list-style: decimal; }
+  list-style: none; }
 
 li > ul,
 li > ol {
@@ -540,24 +544,22 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  color: #383838;
+  text-decoration: none; }
   a:visited {
-    color: purple; }
-  a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #383838; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
     outline: 0; }
+  a:hover {
+    text-decoration: underline; }
 
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
+  float: right; }
   .main-navigation ul {
     display: none;
     list-style: none;
@@ -584,8 +586,7 @@ a {
     float: left;
     position: relative; }
   .main-navigation a {
-    display: block;
-    text-decoration: none; }
+    display: block; }
 
 /* Small menu. */
 .menu-toggle,
@@ -731,6 +732,11 @@ a {
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
+
+/* front-page */
+#featured-image-as-main-background {
+  height: 1024px;
+  width: 768px; }
 
 /*--------------------------------------------------------------
 ## Comments

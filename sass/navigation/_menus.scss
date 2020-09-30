@@ -1,8 +1,5 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+	float: right;
 
 	ul {
 		display: none;
@@ -60,7 +57,6 @@
 
 	a {
 		display: block;
-		text-decoration: none;
 	}
 
 	.current_page_item > a,

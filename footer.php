@@ -14,19 +14,42 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+		<!--Site title and tagline-->
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_mgd' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', '_mgd' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', '_mgd' ), '_mgd', '<a href="http://michaelgarydean.com">Michael Gary Dean</a>' );
-				?>
+			<div id="footer-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+			<div id="footer-description"><?php bloginfo( 'description' ); ?></div>
 		</div><!-- .site-info -->
+
+		<!--main widget area-->
+		<div class="top-widget-area">
+			<?php if ( is_active_sidebar( 'top-footer-widget-1' ) ) : ?>
+				<div class="widget top-footer-widget-1">
+					<?php dynamic_sidebar( 'top-footer-widget-1' ); ?>
+				</div><!-- .widget-area -->
+			<?php endif; ?>
+
+			<?php if ( is_active_sidebar( 'top-footer-widget-2' ) ) : ?>
+				<div class="widget top-footer-widget-2">
+					<?php dynamic_sidebar( 'top-footer-widget-2' ); ?>
+				</div><!-- .widget-area -->
+			<?php endif; ?>
+		</div><!-- .footer-widgets-wrapper -->
+
+		<!--horizontal line-->
+		<div class="horizontal-line">
+			<hr/>
+		</div>
+
+		<!--bottom widget-->
+		<div class="bottom-widget-area">
+			<?php if ( is_active_sidebar( 'bottom-footer-widget' ) ) : ?>
+				<div class="widget bottom-footer-widget">
+					<?php dynamic_sidebar( 'bottom-footer-widget' ); ?>
+				</div><!-- .widget-area -->
+			<?php endif; ?>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
