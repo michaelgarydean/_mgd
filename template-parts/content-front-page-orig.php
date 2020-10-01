@@ -8,21 +8,16 @@
  */
 
 ?>
-	<div class="release-post">
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<div class="post-thumbnail-container">
-			<?php _mgd_post_thumbnail(); ?>
-		</div>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+		<?php _mgd_post_thumbnail(); ?>
 
 		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			<a href="<?php the_permalink(); ?>"><?php the_title( '<h1 class="entry-title-preview">', '</h1>' ); ?></a>
 		</header><!-- .entry-header -->
 
-
-		<div class="entry-content">
-			<?php the_excerpt(); ?>
-		</div>
+		<div class="archive-excerpt"><?php the_excerpt(); ?></div>
 
 		<?php if ( get_edit_post_link() ) : ?>
 			<footer class="entry-footer">
@@ -46,5 +41,4 @@
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-		</article><!-- #post-<?php the_ID(); ?> -->
-	</div>
+	</article><!-- #post-<?php the_ID(); ?> -->

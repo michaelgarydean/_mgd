@@ -19,6 +19,17 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php
+		/*
+		 * Get posts from a category selected in the customizer.
+		 */
+		$front_page_categories = get_theme_mod('_mgd_category_for_posts_on_front_page');
+
+		//If a category has been set, then filter the posts. Otherwise ust get everything.
+		if(isset($front_page_categories)) {
+			query_posts( array ( 'category_name' => $front_page_categories, 'posts_per_page' => -1 ) );
+		}
+
+		//The loop
 		while ( have_posts() ) :
 			the_post();
 

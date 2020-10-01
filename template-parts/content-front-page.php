@@ -9,36 +9,41 @@
 
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-previews' ); ?>>
 
-		<?php _mgd_post_thumbnail(); ?>
+	<?php _mgd_post_thumbnail(); ?>
 
-		<header class="entry-header">
-			<a href="<?php the_permalink(); ?>"><?php the_title( '<h1 class="entry-title-preview">', '</h1>' ); ?></a>
-		</header><!-- .entry-header -->
+	<div class="post-preview-container">
+	<header class="entry-header">
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	</header><!-- .entry-header -->
 
-		<div class="archive-excerpt"><?php the_excerpt(); ?></div>
+	<div class="entry-taxonomies">
+		
+	</div><!-- .entry-taxonomies -->
 
-		<?php if ( get_edit_post_link() ) : ?>
-			<footer class="entry-footer">
-				<?php
-				edit_post_link(
-					sprintf(
-						wp_kses(
-							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Edit <span class="screen-reader-text">%s</span>', '_mgd' ),
-							array(
-								'span' => array(
-									'class' => array(),
-								),
-							)
-						),
-						get_the_title()
+	<?php if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="screen-reader-text">%s</span>', '_mgd' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
 					),
-					'<span class="edit-link">',
-					'</span>'
-				);
-				?>
-			</footer><!-- .entry-footer -->
-		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
+
+	</div><!--post-preview-container-->
+</article><!-- #post-<?php the_ID(); ?> -->
