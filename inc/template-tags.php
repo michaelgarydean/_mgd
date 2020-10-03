@@ -147,6 +147,70 @@ if ( ! function_exists( '_mgd_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( '_mgd_post_preview_header(' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function _mgd_post_preview_header() {
+		the_title( '<h1 class="entry-title"><a href="' . get_the_permalink( ) . '">', '</a></h1>' );
+		?>
+		<div class="entry-taxonomies">
+			<?php
+			/*
+			 * @TODO - Theme customizer options
+			 * Is the option in the theme customizer set? If not, default to post excerpt.
+			 * If it is, which option has been selection? Excerpt or category?
+			 * If the category has been selected, whats the current category of this archive?
+			 * From the archive that's currently being shown, get the terms and display them.
+			 */
+
+			/*
+			 * For now, we'll just code it direct. Show the categories for the projects posts.
+			 */
+
+			//Only show terms on the front page.
+			//if ( is_home() && is_front_page() ) :
+
+				//Get term children of the 'projects' term in the 'category' taxonomy for current post
+				$queried_object_term = get_queried_object( 'term' );
+				$taxonomy_of_current_page = $queried_object_term->taxonomy;
+				$term_id_of_current_page = $queried_object_term->term_id;
+				$term_parent = $queried_object_term->term_id;
+
+				/*
+				 * Get all the terms of the current post
+				 */
+				$terms_of_current_post = get_the_terms( get_the_ID(), $taxonomy_of_current_page );
+
+				if( !is_wp_error( $terms_of_current_post) ) :
+					/*
+					 * For each term, if the term's parent is the same term used by the queried object, then 
+					 * print out the current term in the loop.
+					 */
+					foreach( $terms_of_current_post as $term_of_current_post ) {
+
+						if( $term_of_current_post->parent == $term_id_of_current_page ) :
+							echo( get_term( $term_of_current_post, $taxonomy_of_current_page )->name );
+						endif;
+
+					}
+				endif;
+
+			// else:
+			// 	the_excerpt();
+			// endif;
+			/*
+			 */
+
+			?>
+		</div><!-- .entry-taxonomies -->
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.

@@ -15,12 +15,8 @@
 
 	<div class="post-preview-container">
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php _mgd_post_preview_header(); ?>
 	</header><!-- .entry-header -->
-
-	<div class="entry-taxonomies">
-		
-	</div><!-- .entry-taxonomies -->
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

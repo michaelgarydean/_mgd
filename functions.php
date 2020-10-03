@@ -114,45 +114,6 @@ function _mgd_content_width() {
 add_action( 'after_setup_theme', '_mgd_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function _mgd_widgets_init() {
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Top Footer Widget 1', '_mgd' ),
-		'id'            => 'top-footer-widget-1',
-		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );	
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Top Footer Widget 2', '_mgd' ),
-		'id'            => 'top-footer-widget-2',
-		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );	
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Bottom Footer Widget', '_mgd' ),
-		'id'            => 'bottom-footer-widget',
-		'description'   => esc_html__( 'Add widgets here.', '_mgd' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );	
-}
-add_action( 'widgets_init', '_mgd_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function _mgd_scripts() {
@@ -170,6 +131,11 @@ function _mgd_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', '_mgd_scripts' );
+
+/**
+ * Widget areas and sidebars
+ */
+require get_template_directory() . '/inc/widgets.php';
 
 /**
  * Implement the Custom Header feature.
