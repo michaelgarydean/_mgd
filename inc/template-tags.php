@@ -190,13 +190,31 @@ if ( ! function_exists( '_mgd_post_preview_header(' ) ) :
 					 * For each term, if the term's parent is the same term used by the queried object, then 
 					 * print out the current term in the loop.
 					 */
+					$num_terms = count( $terms_of_current_post );
+					$index = 0;
+
+					echo( '<ul class="preview-post-terms-list">' );
+
 					foreach( $terms_of_current_post as $term_of_current_post ) {
 
 						if( $term_of_current_post->parent == $term_id_of_current_page ) :
-							echo( get_term( $term_of_current_post, $taxonomy_of_current_page )->name );
+
+							//Print out the child terms for the post
+							echo( 
+								'<li>' . get_term( $term_of_current_post, $taxonomy_of_current_page )->name . '</li>'
+							);
+
+							//Only print a space if it's not the last item.
+  							// if( ++$index != $num_terms ) :
+  							// 	echo( " " );
+  							// endif;
+							
 						endif;
 
 					}
+
+					echo( '</ul>' );
+
 				endif;
 
 			// else:
