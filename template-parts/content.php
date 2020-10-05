@@ -10,6 +10,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php /* mgd_post_thumbnail();*/ ?>
+
+	<?php 
+		/*
+		 * Show either the "featured video" or the post's featured image if none is set.
+		 */
+		_mgd_featured_video_or_image( $post->ID );
+	?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -21,15 +31,10 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				_mgd_posted_on();
-				_mgd_posted_by();
-				?>
 			</div><!-- .entry-meta -->
+
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php _mgd_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

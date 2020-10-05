@@ -138,6 +138,11 @@ add_action( 'wp_enqueue_scripts', '_mgd_scripts' );
 require get_template_directory() . '/inc/widgets.php';
 
 /**
+ * Metaboxes
+ */
+require get_template_directory() . '/inc/metaboxes.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

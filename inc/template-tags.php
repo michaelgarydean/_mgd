@@ -7,10 +7,11 @@
  * @package michael-gary-dean
  */
 
+/**
+ * Prints HTML with meta information for the current post-date/time.
+ */
 if ( ! function_exists( '_mgd_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
+
 	function _mgd_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -35,10 +36,12 @@ if ( ! function_exists( '_mgd_posted_on' ) ) :
 	}
 endif;
 
+
+/**
+ * Prints HTML with meta information for the current author.
+ */
 if ( ! function_exists( '_mgd_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
+
 	function _mgd_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
@@ -51,10 +54,11 @@ if ( ! function_exists( '_mgd_posted_by' ) ) :
 	}
 endif;
 
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
 if ( ! function_exists( '_mgd_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
+
 	function _mgd_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
@@ -111,13 +115,14 @@ if ( ! function_exists( '_mgd_entry_footer' ) ) :
 	}
 endif;
 
+/**
+ * Displays an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ */
 if ( ! function_exists( '_mgd_post_thumbnail' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
+
 	function _mgd_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
@@ -147,13 +152,14 @@ if ( ! function_exists( '_mgd_post_thumbnail' ) ) :
 	}
 endif;
 
+/**
+ * Displays an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ */
 if ( ! function_exists( '_mgd_post_preview_header(' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
+
 	function _mgd_post_preview_header() {
 		the_title( '<h1 class="entry-title"><a href="' . get_the_permalink( ) . '">', '</a></h1>' );
 		?>
@@ -229,13 +235,46 @@ if ( ! function_exists( '_mgd_post_preview_header(' ) ) :
 	}
 endif;
 
+/**
+ * Shim for sites older than 5.2.
+ *
+ * @link https://core.trac.wordpress.org/ticket/12563
+ */
 if ( ! function_exists( 'wp_body_open' ) ) :
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */
+
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
+endif;
+
+/*
+ * Embed a full width video, if one has been saved using the Featured Video metabox in the post.
+ */
+if ( ! function_exists( '_mgd_featured_video_or_image' ) ) :
+
+	function _mgd_featured_video_or_image( $post_id) {
+
+			$featured_video_url = get_post_meta( $post_id, "mgd_featured_video_url", true );
+
+			/*
+			 * Show either the "feature video" or the post's featured image if none is set.
+			 */
+			if( ! empty( $featured_video_url ) ) :
+				global $wp_embed;
+				?>
+
+				<div class="featured-video-wrapper">
+
+				<?php
+				echo $wp_embed->run_shortcode( '[embed]' . $featured_video_url . '[/embed]' );
+				?>
+
+				</div>
+
+				<?php
+			else:
+				_mgd_post_thumbnail();
+			endif;
+	}
+
 endif;
