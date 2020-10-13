@@ -1,0 +1,46 @@
+/* HEADER */
+
+#masthead {
+	background-color: #fff;
+	width: 100%;
+	
+	text-transform: uppercase;
+	font-weight:600;
+	
+	/* align text */
+	height: 80px; 
+	line-height: 80px;
+}
+.site-title, .site-description {
+	padding: 0;
+	margin: 0 1em;
+	position: relative;
+	float: left;
+	
+	font-size: 1.5em;
+
+	/* align text */
+	vertical-align: middle;
+	
+}
+
+.main-navigation {
+	padding: 0;
+	margin: 0 1em;
+	
+	/* align text */
+	vertical-align: middle;
+}
+
+.main-navigation ul li {
+	display: inline;
+	padding: 0px 0.5em;
+	
+	font-size: 1em;
+}
+
+.menu {
+	margin: 3%; /* Should be a variable for content*/
+	margin-top: 2%;
+	padding: 0;
+}

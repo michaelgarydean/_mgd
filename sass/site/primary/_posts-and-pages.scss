@@ -27,3 +27,206 @@
 	height: 1024px;
 	width: 768px;
 }
+
+/* POSTS */
+.hold-thumbnail img {
+}
+
+/* Full the entire width of the page, keep aspect ratio */
+.post-previews .attachment-post-thumbnail {
+	object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+	height: auto;
+}
+
+.post-previews .entry-title {
+  text-align: right;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.post-previews .entry-taxonomies {
+	margin: 0;
+	line-height: 0.75;
+	
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+.post-preview-container {
+	margin: 1em 1em 3em 0; /*use a variable to make sure the margin is the same for the menu, title, and content */
+}
+
+.post-preview-container .entry-taxonomies {
+	text-align: right;
+}
+
+.entry-title {
+	text-transform: uppercase;
+}
+
+/*The magic padding number you create for the container needs to match the aspect ratio of the video. If you inspect the video on vimeo, the res is 1296x540. To get the aspect ratio percentage, divide 360 / 640 * 100% = 56.25% padding.*/
+.featured-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  background: black;
+}
+.featured-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.entry-content p,
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4 {
+	margin: 0 1em;
+}
+.entry-title {
+	margin: 0.5em;
+}
+
+.entry-content table, {
+	margin: 0 1em;
+	overflow: hidden;
+}
+
+/* Releases page */
+.posts-grid-flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 100%;
+}
+
+.release-post {
+	max-width: 31vw;
+	padding: 10px;
+	float: left;
+}
+
+.release-post .post-thumbnail-container {
+}
+
+.release-post header > h1{
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+
+.release-post .entry-content {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	font-weight: 200;
+}
+
+.release-post .post-thumbnail-container img {
+	object-fit: cover;
+	height: 31vw; /* use a variable */
+}
+
+.release-post .entry-header {
+	margin-top: 1.25em;
+	font-size: 0.5em;
+}
+
+.post-thumbnail img {
+	
+	transition: filter 0.075s ease-in-out;
+}
+
+.post-thumbnail img:hover {
+  filter: none ;
+  -webkit-filter: opacity(80%);
+}
+
+.release-post .entry-content p {
+	margin: 0 0;
+}
+
+.entry-footer {
+	margin: 1em 0;
+	text-align: right;
+}
+
+/* END POSTS */
+
+/* SERVICES */
+article.category-services {
+	max-width: 48vw;
+	float: left;
+	margin: 0.4em;
+}
+
+
+
+/* Fix line height between terms on service page  */
+article.category-services .preview-post-terms-list {
+	line-height: 1.25em;
+}
+
+/* MEDIA */
+@media screen and (min-width: 10em) {
+	.release-post {
+		max-width: 100vw;
+	} 
+	
+	.release-post .post-thumbnail-container img {
+	height: 100vw; /* use a variable */
+	}
+	
+}
+
+@media screen and (min-width: 33.375em) {
+	.release-post {
+		max-width: 50vw;
+	} 
+	
+	.release-post .post-thumbnail-container img {
+	height: 50vw; /* use a variable */
+	}
+	
+}
+
+@media screen and (min-width: 48em) {
+	
+	.release-post {
+		max-width: 33vw;
+	} 
+	
+	.release-post .post-thumbnail-container img {
+	height: 33vw; /* use a variable */
+}
+}
+
+@media screen and (min-width: 64em) {
+}
+@media screen and (min-width: 72em) {
+
+
+@media screen and (min-width: 80em) {
+	
+	.release-post {
+		max-width: 25vw;
+	} 
+	
+	.release-post .post-thumbnail-container img {
+	height: 25vw; /* use a variable 
+*/}
+}
+}
+
+
+@media screen and (min-width: 85em) {
+}
+
+@media screen and (min-width: 90em) {
+}

@@ -1,0 +1,59 @@
+.site-footer {
+	background-color: black;
+	color: white;
+}
+
+.site-footer a {
+	color: white;
+}
+
+#footer-description {
+	font-size: 0.75em;
+	font-weight: 200; 
+	margin-left: 3%; /* Should be a variable for content*/
+	
+	letter-spacing: 0.1em;
+}
+
+#footer-site-title {
+	font-size: 0.5em;
+	margin: 0 3%; /* Should be a variable for content*/
+	margin-top: 2%;
+	margin-bottom: -0.5%;
+	letter-spacing: 0.2em;
+}
+
+#footer-site-title a {
+	font-size: 4em;
+	text-transform: uppercase;
+	color: white;
+}
+
+footer li a {
+	color: white;
+}
+
+footer  {
+	color: white;
+}
+
+/* Widget Area */
+
+.top-footer-widget-2 {
+	margin-left: 1%;
+}
+
+/* line in the footer */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+		margin: 0 1em;
+    padding: 0;
+	
+		margin-left: 3%;
+}
+
+.bottom-footer-widget {
+	margin: 3%;
+}
