@@ -187,11 +187,11 @@ article.category-services .preview-post-terms-list {
 
 @media screen and (min-width: 33.375em) {
 	.release-post {
-		max-width: 50vw;
+		max-width: 48vw;
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 50vw; /* use a variable */
+	height: 48vw; /* use a variable */
 	}
 	
 }
@@ -199,28 +199,29 @@ article.category-services .preview-post-terms-list {
 @media screen and (min-width: 48em) {
 	
 	.release-post {
-		max-width: 33vw;
+		max-width: 32vw;
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 33vw; /* use a variable */
+	height: 32vw; /* use a variable */
 }
 }
 
 @media screen and (min-width: 64em) {
+
+	.release-post {
+		max-width: 24vw;
+	} 
+	
+	.release-post .post-thumbnail-container img {
+	height: 24vw; /* use a variable 
+*/}
 }
 @media screen and (min-width: 72em) {
 
 
 @media screen and (min-width: 80em) {
-	
-	.release-post {
-		max-width: 25vw;
-	} 
-	
-	.release-post .post-thumbnail-container img {
-	height: 25vw; /* use a variable 
-*/}
+
 }
 }
 

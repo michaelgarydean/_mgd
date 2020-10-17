@@ -64,6 +64,11 @@ if ( ! function_exists( '_mgd_entry_footer' ) ) :
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', '_mgd' ) );
+
+			/*
+			 * @TODO
+			 * This should be a theme option.
+			 */
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', '_mgd' ) . '</span>', $categories_list ); // WPCS: XSS OK.
@@ -71,6 +76,8 @@ if ( ! function_exists( '_mgd_entry_footer' ) ) :
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', '_mgd' ) );
+
+
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', '_mgd' ) . '</span>', $tags_list ); // WPCS: XSS OK.
@@ -209,11 +216,6 @@ if ( ! function_exists( '_mgd_post_preview_header(' ) ) :
 							echo( 
 								'<li>' . get_term( $term_of_current_post, $taxonomy_of_current_page )->name . '</li>'
 							);
-
-							//Only print a space if it's not the last item.
-  							// if( ++$index != $num_terms ) :
-  							// 	echo( " " );
-  							// endif;
 							
 						endif;
 
