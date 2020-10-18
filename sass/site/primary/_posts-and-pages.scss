@@ -1,10 +1,12 @@
+/* @TODO - if 1em is 20 px, change all ems to px*/
+
 .sticky {
 	display: block;
 }
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0 0 30px;
 }
 
 .updated:not(.published) {
@@ -14,12 +16,12 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 30px 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 30px;
 }
 
 /* front-page */
@@ -41,7 +43,7 @@
 }
 
 .post-previews .entry-title {
-  text-align: right;
+	text-align: right;
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -55,14 +57,16 @@
 }
 
 .post-preview-container {
-	margin: 1em 1em 3em 0; /*use a variable to make sure the margin is the same for the menu, title, and content */
+	margin: 20px 20px 60px 0; /*use a variable to make sure the margin is the same for the menu, title, and content */
 }
 
 .post-preview-container .entry-taxonomies {
 	text-align: right;
 }
 
+/* Title of the post entry */
 .entry-title {
+	margin: 20px 0px 0px 20px;
 	text-transform: uppercase;
 }
 
@@ -86,14 +90,11 @@
 .entry-content h2,
 .entry-content h3,
 .entry-content h4 {
-	margin: 0 1em;
-}
-.entry-title {
-	margin: 0.5em;
+	margin: 0 20px;
 }
 
 .entry-content table, {
-	margin: 0 1em;
+	margin: 0 20px;
 	overflow: hidden;
 }
 
@@ -134,8 +135,8 @@
 }
 
 .release-post .entry-header {
-	margin-top: 1.25em;
-	font-size: 0.5em;
+	margin-top: 25px;
+	font-size: 10px;
 }
 
 .post-thumbnail img {
