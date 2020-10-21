@@ -9,6 +9,10 @@
 
 //debug_to_console(get_stylesheet_uri());
 
+/* Don's load jetpack CSS */
+add_filter( 'jetpack_sharing_counts', '__return_false', 99 );
+add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
+
 /* 
  * ============================
  * THEME SETUP
