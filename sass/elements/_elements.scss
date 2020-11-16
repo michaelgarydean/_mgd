@@ -35,3 +35,18 @@ figure {
 p.site-title {
 	text-decoration: none;
 }
+
+/* SITE WIDE */
+
+.entry-content a {
+	font-weight: 300;
+}
+
+/* thin text for body content*/
+.entry-content, .wp-block-table {
+	font-weight: 200;
+}
+
+.entry-content > p {
+	margin: 20px;
+}

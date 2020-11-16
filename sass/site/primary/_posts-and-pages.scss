@@ -34,6 +34,52 @@
 .hold-thumbnail img {
 }
 
+
+
+/* POSTS IMAGES */
+
+/* Post image inside a post*/
+.post .post-thumbnail img {
+	object-fit: cover;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* remove space between images */
+.wp-block-image {
+	line-height: 0;
+	margin: 0;
+}
+
+.wp-block-image img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* POSTS TEXT */
+
+/* tagline and post authors */
+.post-tagline {
+	font-style: italic;
+	font-size: 12px;
+}
+
+.post-tagline > p {
+	margin: 10px 0px 0px 20px;
+}
+
+/* post content */
+.entry-title {
+	margin-bottom: 0;
+}
+
+.entry-content {
+	margin: 0em;
+}
+
 /* Full the entire width of the page, keep aspect ratio */
 .post-previews .attachment-post-thumbnail {
 	object-fit: cover;
@@ -206,6 +252,8 @@ article.category-services .preview-post-terms-list {
 	.release-post .post-thumbnail-container img {
 	height: 32vw; /* use a variable */
 }
+
+
 }
 
 @media screen and (min-width: 64em) {
@@ -217,6 +265,8 @@ article.category-services .preview-post-terms-list {
 	.release-post .post-thumbnail-container img {
 	height: 24vw; /* use a variable 
 */}
+
+
 }
 @media screen and (min-width: 72em) {
 
