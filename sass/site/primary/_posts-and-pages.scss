@@ -116,6 +116,12 @@
 	text-transform: uppercase;
 }
 
+/* 
+ * = = =
+ * VIDEO
+ * = = = 
+ */
+
 /*The magic padding number you create for the container needs to match the aspect ratio of the video. If you inspect the video on vimeo, the res is 1296x540. To get the aspect ratio percentage, divide 360 / 640 * 100% = 56.25% padding.*/
 .featured-video-wrapper {
   position: relative;
@@ -123,6 +129,7 @@
   height: 0;
   background: black;
 }
+
 .featured-video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -130,6 +137,31 @@
   width: 100%;
   height: 100%;
 }
+
+/* POSTS VIDEO */
+
+.wp-block-embed-vimeo > .wp-block-embed__wrapper {
+	  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  background: black;
+}
+
+.wp-block-embed-vimeo > .wp-block-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+ * = = =
+ * VIDEO
+ * = = = 
+ */
+
+
 
 .entry-content p,
 .entry-content h1,
