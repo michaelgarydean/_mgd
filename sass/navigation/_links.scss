@@ -20,3 +20,9 @@ a {
 		text-decoration: underline;
 	}
 }
+
+/* Ser links in text to be slightly more bold */
+.entry-content a {
+	font-weight: $font__weight-a-body;
+	font-decoration: underline;
+}

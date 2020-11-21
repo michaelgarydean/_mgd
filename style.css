@@ -459,6 +459,17 @@ table {
 p.site-title {
   text-decoration: none; }
 
+/* SITE WIDE */
+.entry-content a {
+  font-weight: 300; }
+
+/* thin text for body content*/
+.entry-content, .wp-block-table {
+  font-weight: 200; }
+
+.entry-content > p {
+  margin: 20px; }
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -550,6 +561,11 @@ a {
     outline: 0; }
   a:hover {
     text-decoration: underline; }
+
+/* Ser links in text to be slightly more bold */
+.entry-content a {
+  font-weight: 300;
+  font-decoration: underline; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -790,17 +806,19 @@ hr {
   margin-left: 3%; }
 
 .bottom-footer-widget {
-  margin: 3%; }
+  margin: 3%;
+  font-weight: 200; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+/* @TODO - if 1em is 20 px, change all ems to px*/
 .sticky {
   display: block; }
 
 .post,
 .page {
-  margin: 0 0 1.5em; }
+  margin: 0 0 30px; }
 
 .updated:not(.published) {
   display: none; }
@@ -808,11 +826,15 @@ hr {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0; }
+  margin: 30px 0 0; }
 
 .page-links {
   clear: both;
-  margin: 0 0 1.5em; }
+  margin: 0 0 30px; }
+
+/* hide the entry footer */
+.post {
+  margin: 0; }
 
 /* front-page */
 #featured-image-as-main-background {
@@ -820,6 +842,41 @@ hr {
   width: 768px; }
 
 /* POSTS */
+/* POSTS IMAGES */
+/* Post image inside a post*/
+.post .post-thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
+/* remove space between images */
+.wp-block-image {
+  line-height: 0;
+  margin: 0; }
+
+.wp-block-image img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
+/* POSTS TEXT */
+/* tagline and post authors */
+.post-tagline {
+  font-style: italic;
+  font-size: 12px; }
+
+.post-tagline > p {
+  margin: 10px 0px 0px 20px; }
+
+/* post content */
+.entry-title {
+  margin-bottom: 0; }
+
+.entry-content {
+  margin: 0em; }
+
 /* Full the entire width of the page, keep aspect ratio */
 .post-previews .attachment-post-thumbnail {
   object-fit: cover;
@@ -839,42 +896,65 @@ hr {
   text-transform: uppercase; }
 
 .post-preview-container {
-  margin: 1em 1em 3em 0;
+  margin: 20px 20px 60px 0;
   /*use a variable to make sure the margin is the same for the menu, title, and content */ }
 
 .post-preview-container .entry-taxonomies {
   text-align: right; }
 
+/* Title of the post entry */
 .entry-title {
+  margin: 20px 0px 0px 20px;
   text-transform: uppercase; }
 
+/* 
+ * = = = = *
+ *  VIDEO  *
+ * = = = = *
+ */
+/* The first selector is without Jetpack, the second selector with the children is for Jetpack */
 /*The magic padding number you create for the container needs to match the aspect ratio of the video. If you inspect the video on vimeo, the res is 1296x540. To get the aspect ratio percentage, divide 360 / 640 * 100% = 56.25% padding.*/
-.featured-video-wrapper {
+.featured-video-wrapper,
+.featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo {
   position: relative;
   padding-bottom: 56.25%;
   /* 16:9 */
   height: 0;
   background: black; }
 
-.featured-video-wrapper iframe {
+.featured-video-wrapper iframe,
+.featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo > iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important; }
+
+/* POSTS VIDEO */
+.wp-block-embed-vimeo > .wp-block-embed__wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  background: black; }
+
+.wp-block-embed-vimeo > .wp-block-embed__wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%; }
 
+/* END VIDEO */
 .entry-content p,
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
 .entry-content h4 {
-  margin: 0 1em; }
-
-.entry-title {
-  margin: 0.5em; }
+  margin: 0 20px; }
 
 .entry-content table {
-  margin: 0 1em;
+  margin: 0 20px;
   overflow: hidden; }
 
 /* Releases page */
@@ -906,8 +986,8 @@ hr {
   /* use a variable */ }
 
 .release-post .entry-header {
-  margin-top: 1.25em;
-  font-size: 0.5em; }
+  margin-top: 25px;
+  font-size: 10px; }
 
 .post-thumbnail img {
   transition: filter 0.075s ease-in-out; }
@@ -922,6 +1002,13 @@ hr {
 .entry-footer {
   margin: 1em 0;
   text-align: right; }
+
+.footer-top-spacer {
+  height: 10px;
+  /* Same as side margin*/ }
+
+.footer-bottom-spacer {
+  height: 80px; }
 
 /* END POSTS */
 /* SERVICES */
@@ -944,24 +1031,24 @@ article.category-services .preview-post-terms-list {
     /* use a variable */ } }
 @media screen and (min-width: 33.375em) {
   .release-post {
-    max-width: 50vw; }
+    max-width: 48vw; }
 
   .release-post .post-thumbnail-container img {
-    height: 50vw;
+    height: 48vw;
     /* use a variable */ } }
 @media screen and (min-width: 48em) {
   .release-post {
-    max-width: 33vw; }
+    max-width: 32vw; }
 
   .release-post .post-thumbnail-container img {
-    height: 33vw;
+    height: 32vw;
     /* use a variable */ } }
-@media screen and (min-width: 72em) and (min-width: 80em) {
+@media screen and (min-width: 64em) {
   .release-post {
-    max-width: 25vw; }
+    max-width: 24vw; }
 
   .release-post .post-thumbnail-container img {
-    height: 25vw;
+    height: 24vw;
     	              /* use a variable 
     */ } }
 /*--------------------------------------------------------------
@@ -1053,5 +1140,19 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+## IMAGES
+--------------------------------------------------------------*/
+/* Featured image used as the header for a post*/
+.post .post-thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
+/*--------------------------------------------------------------
+## VIDEOS
+--------------------------------------------------------------*/
 
 /*# sourceMappingURL=style.css.map */

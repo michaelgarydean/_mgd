@@ -14,6 +14,8 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="footer-top-spacer">
+		</div>
 
 		<!--Site title and tagline-->
 		<div class="site-info">
@@ -50,6 +52,8 @@
 			<?php endif; ?>
 		</div>
 
+		<div class="footer-bottom-spacer">
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

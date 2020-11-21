@@ -58,6 +58,7 @@
 		?>
 	</div><!-- .entry-content -->
 
+	<!-- no entry footer please
 	<footer class="entry-footer">
 		<?php //_mgd_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
