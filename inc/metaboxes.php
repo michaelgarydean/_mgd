@@ -5,6 +5,9 @@
  * @package michael-gary-dean
  */
 
+/* @TODO
+ * Why is the code for the featured-video metabox here? It was added in a plugin?
+ */
 
 /**
  * Add a meta box in the sidebar so users can add a featured video.
@@ -21,6 +24,7 @@ function _mgd_register_meta_boxes() {
     'post',
     'side' );
 }
+
 add_action( 'add_meta_boxes', 'mgd_register_meta_boxes' );
 
 /**
