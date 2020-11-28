@@ -35,11 +35,22 @@
 	width: 768px;
 }
 
-/* POSTS */
-.hold-thumbnail img {
+/* SINGLES */
+
+/* line spacing on single pages */
+.single .entry-content p { 
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.entry-content a {
+	font-weight: 300;
 }
 
 
+/* POSTS */
+.hold-thumbnail img {
+}
 
 /* POSTS IMAGES */
 
@@ -64,6 +75,7 @@
     height: auto;
 }
 
+
 /* POSTS TEXT */
 
 /* tagline and post authors */
@@ -76,20 +88,41 @@
 	margin: 10px 0px 0px 20px;
 }
 
-/* post content */
+/* POST TITLE */
 .entry-title {
 	margin-bottom: 0;
 }
 
+/* tagline and post authors */
+.post-tagline {
+	font-style: italic;
+	font-size: 12px;
+}
+
+.post-tagline > p {
+	margin: 10px 0px 0px 20px;
+}
+
+/* POST CONTENT */
 .entry-content {
 	margin: 0em;
+	font-size: 14px;
+}
+
+/* thin text for body content*/
+.entry-content, .wp-block-table {
+	font-weight: 200;
+}
+
+.entry-content > p {
+	margin: 20px;
 }
 
 /* Full the entire width of the page, keep aspect ratio */
 .post-previews .attachment-post-thumbnail {
 	object-fit: cover;
-  width: 100%;
-  max-width: 100%;
+  	width: 100%;
+ 	max-width: 100%;
 	height: auto;
 }
 
@@ -117,7 +150,8 @@
 
 /* Title of the post entry */
 .entry-title {
-	margin: 20px 0px 0px 20px;
+	margin: 30px 0px 0px 20px;
+
 	text-transform: uppercase;
 }
 
@@ -130,6 +164,7 @@
 /* The first selector is without Jetpack, the second selector with the children is for Jetpack */
 
 /*The magic padding number you create for the container needs to match the aspect ratio of the video. If you inspect the video on vimeo, the res is 1296x540. To get the aspect ratio percentage, divide 360 / 640 * 100% = 56.25% padding.*/
+
 .featured-video-wrapper,
 .featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo {
   position: relative;
@@ -138,22 +173,23 @@
   background: black;
 }
 
+/* this works in the customizer, but not in css sheet */
 .featured-video-wrapper iframe,
 .featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo > iframe {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* POSTS VIDEO */
 
 .wp-block-embed-vimeo > .wp-block-embed__wrapper {
-	  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  background: black;
+	position: relative;
+  	padding-bottom: 56.25%; /* 16:9 */
+  	height: 0;
+  	background: black;
 }
 
 .wp-block-embed-vimeo > .wp-block-embed__wrapper iframe {
@@ -163,6 +199,7 @@
   width: 100%;
   height: 100%;
 }
+
 
 /* END VIDEO */
 
@@ -222,7 +259,6 @@
 }
 
 .post-thumbnail img {
-	
 	transition: filter 0.075s ease-in-out;
 }
 
@@ -266,23 +302,30 @@ article.category-services .preview-post-terms-list {
 
 /* MEDIA */
 @media screen and (min-width: 10em) {
+
 	.release-post {
 		max-width: 100vw;
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 100vw; /* use a variable */
+		height: 100vw; /* use a variable */
+	}
+	
+	/* post content */
+	.entry-title {
+		font-size: 24px;
 	}
 	
 }
 
 @media screen and (min-width: 33.375em) {
+
 	.release-post {
 		max-width: 48vw;
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 48vw; /* use a variable */
+		height: 48vw; /* use a variable */
 	}
 	
 }
@@ -294,10 +337,8 @@ article.category-services .preview-post-terms-list {
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 32vw; /* use a variable */
-}
-
-
+		height: 32vw; /* use a variable */
+	}
 }
 
 @media screen and (min-width: 64em) {
@@ -307,19 +348,14 @@ article.category-services .preview-post-terms-list {
 	} 
 	
 	.release-post .post-thumbnail-container img {
-	height: 24vw; /* use a variable 
-*/}
-
-
+		height: 24vw; /* use a variable */
+	}
 }
 @media screen and (min-width: 72em) {
-
+}
 
 @media screen and (min-width: 80em) {
-
 }
-}
-
 
 @media screen and (min-width: 85em) {
 }

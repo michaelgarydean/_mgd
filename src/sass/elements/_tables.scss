@@ -2,3 +2,13 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+/* table formatting */
+th, td {
+	min-width: 150px;
+	padding: 5px 0px;
+}
+
+th,td,table,tbody, {
+	overflow: visible;
+}
