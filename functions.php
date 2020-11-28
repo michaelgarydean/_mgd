@@ -131,7 +131,7 @@ add_action( 'after_setup_theme', '_mgd_content_width', 0 );
 function _mgd_scripts() {
 
 	/* Load stylesheet */
-	wp_enqueue_style( '_mgd-style', get_stylesheet_uri() );
+	//wp_enqueue_style( '_mgd-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( '_mgd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
