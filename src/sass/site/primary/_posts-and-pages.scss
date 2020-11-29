@@ -37,8 +37,9 @@
 
 /* SINGLES */
 
-/* line spacing on single pages */
-.single .entry-content p { 
+/* line spacing on single posts, pages */
+.single .entry-content p,
+.page .entry-content p { 
 	margin-top: 15px;
 	margin-bottom: 15px;
 }

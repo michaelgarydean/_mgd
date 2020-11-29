@@ -14,3 +14,9 @@
 .wp-caption-text {
 	text-align: center;
 }
+
+/* Captions below images in posts*/ 
+.wp-block-image figcaption {
+	margin: 1.5em 20px 2em;
+	font-style: italic;
+}
