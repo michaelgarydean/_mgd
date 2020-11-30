@@ -41,8 +41,57 @@ object {
 	height: auto;
 }
 
+/* Put space under images in posts */
+.wp-block-image {
+	margin-bottom: 40px;
+}
+
 
 /*--------------------------------------------------------------
 ## VIDEOS
 --------------------------------------------------------------*/
+
+/* The first selector is without Jetpack, the second selector with the children is for Jetpack */
+
+/*The magic padding number you create for the container needs to match the aspect ratio of the video. If you inspect the video on vimeo, the res is 1296x540. To get the aspect ratio percentage, divide 360 / 640 * 100% = 56.25% padding.*/
+
+.featured-video-wrapper,
+.featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo,
+.featured-video-wrapper > .jetpack-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  background: black;
+}
+
+/* this works in the customizer, but not in css sheet */
+.featured-video-wrapper iframe,
+.featured-video-wrapper > .jetpack-video-wrapper > .embed-vimeo > iframe,
+.featured-video-wrapper > .jetpack-video-wrapper > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* POSTS VIDEO */
+
+.wp-block-embed-vimeo > .wp-block-embed__wrapper {
+	position: relative;
+  	padding-bottom: 56.25%; /* 16:9 */
+  	height: 0;
+  	background: black;
+}
+
+.wp-block-embed-vimeo > .wp-block-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* END VIDEO */
 
