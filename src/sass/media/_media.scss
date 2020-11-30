@@ -42,8 +42,13 @@ object {
 }
 
 /* Put space under images in posts */
-.wp-block-image {
+figcaption {
 	margin-bottom: 40px;
+}
+
+/* no space between media in posts */
+.wp-block-embed {
+	margin: 0px;
 }
 
 
