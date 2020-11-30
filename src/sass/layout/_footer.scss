@@ -6,6 +6,8 @@
 	height: 100vh;
     background-color: #1a1a1a;
     color: #b3b3b3;
+
+	padding: 0 $padding__side; /* Should be a variable for content*/
 }
 
 .site-footer a {
@@ -13,20 +15,16 @@
 }
 
 #footer-description {
-	font-size: 0.75em;
+	font-size: 1em;
 	font-weight: 200; 
-	margin-left: 3%; /* Should be a variable for content*/
 	
 	letter-spacing: 0.1em;
 }
 
 /* footer title */
-
 #footer-site-title {
 	font-size: 0.5em;
-	margin: 0 3%; /* Should be a variable for content*/
-	margin-top: 2%;
-	margin-bottom: -0.5%;
+	margin-top: $margin__side;
 	letter-spacing: 0.2em;
 }
 
@@ -44,10 +42,14 @@ footer  {
 	color: white;
 }
 
+/* overrides sass/layout/_header.scss:.menu */
+footer .menu {
+	margin: 0px;
+}
+
 /* Widget Area */
 
 .top-footer-widget-2 {
-	margin-left: 1%;
 }
 
 /* line in the footer */
@@ -55,13 +57,58 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-	margin: 0 1em;
     padding: 0;
-	
-	margin-left: 3%;
 }
 
 .bottom-footer-widget {
-    margin: 1% 3%;
+    margin: $margin__side/2 0px;
 	font-weight: 200;
+}
+
+/* Social media jetpack widget */ 
+.jetpack_widget_social_icons {
+	margin: $margin__side 0px;
+}
+
+.jetpack-social-widget-item:first-child {
+	margin-left: 0px;
+}
+
+.jetpack-social-widget-item:last-child {
+	margin-right: 0px;
+}
+
+.jetpack-social-widget-item {
+	margin: 0px 5px;
+}
+
+/* custom html widgets */
+.textwidget {
+	font-size: 14px;
+}
+
+.textwidget > *{
+	display: block;
+	font-weight: 200;
+}
+
+.horizontal-line > hr {
+	margin-right: -$margin__side;
+}
+
+/* add space between bottom widgets and the line */
+.bottom-widget-area {
+	margin: 20px 0px;
+}
+
+/* footer menu in a row */
+.site-footer .menu > li {
+	display: inline;
+	font-weight: 400;
+}
+
+/* Add bars between elements */
+.site-footer .menu > li + li::before {
+	content: " | ";
+	margin: 0px 5px;
 }
