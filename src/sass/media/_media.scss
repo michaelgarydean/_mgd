@@ -37,8 +37,10 @@ object {
 .post .post-thumbnail img {
 	object-fit: cover;
 	width: 100%;
+  /*
 	max-width: 100%;
 	height: auto;
+  */
 }
 
 /* Put space under images in posts */
