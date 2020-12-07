@@ -3,7 +3,9 @@
 _mgd
 ===
 
-An artistic portfolio theme built from the skeleton theme called `_s`, or `underscores`, by Automattic.
+A custom theme coded and designed by Michael Gary Dean for artistic portfolios using Wordpress. 
+
+The theme is built using PHP, SASS and JavaScript and packaged with Webpack. It’s based on the `underscores` framework released by Automattic. 
 
 @author Michael Gary Dean
 @see    michaeldean.ca
