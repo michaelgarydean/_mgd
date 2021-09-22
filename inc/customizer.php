@@ -26,6 +26,25 @@ function _mgd_customize_register( $wp_customize ) {
 		) );
 	}
  
+	/* 2021-09-21 - Custom link for the site title in the header */
+	$wp_customize->add_setting( 
+		'_mgd_site_title_link', 
+		array(
+			'default' 		=> get_home_url( '/' ),
+			'type'       	=> 'option',
+			'capability' 	=> 'edit_theme_options',
+		)
+	);
+
+	$wp_customize->add_control( 
+		'_mgd_site_title_link', 
+		array(
+	        'label'      => __( 'Site Title Link', 'textdomain' ),
+	        'description' => __( 'Where your site title will link to.', 'textdomain' ),
+			'section' => 'title_tagline',
+			'type'    => 'text',
+		)
+	);
 
 }
 add_action( 'customize_register', '_mgd_customize_register' );

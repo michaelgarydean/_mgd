@@ -31,9 +31,9 @@
 					<div class="wrapper">
 						<div id="site-details">
 							<?php if ( is_front_page() && is_home() ) : ?>
-								<h1 class="site-title" class="underline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+								<h1 class="site-title" class="underline"><a href="<?php echo esc_url( get_option( '_mgd_site_title_link', 'home_url( '/' )' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 							<?php else : ?>
-								<p class="site-title" class="underline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+								<p class="site-title" class="underline"><a href="<?php echo esc_url( get_option( '_mgd_site_title_link', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 							<?php
 							endif; ?>
 						</div><!-- #site-details -->
